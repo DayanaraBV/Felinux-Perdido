@@ -1,0 +1,125 @@
+/* ===== FELINUX CHARACTER CSS (IMAGE VERSION) ===== */
+.felinux-character {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.felinux-small .felinux-img { height: 160px; }
+.felinux-medium .felinux-img { height: 380px; }
+.felinux-large .felinux-img { height: min(500px, 58vh); }
+
+.felinux-img {
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+.felinux-anim-happy .felinux-img,
+.felinux-anim-power .felinux-img {
+  animation: imgBounce 0.6s ease infinite alternate;
+}
+.felinux-anim-victory .felinux-img {
+  animation: imgVictoryJump 0.8s ease infinite;
+}
+.felinux-anim-sad .felinux-img {
+  animation: imgSadShake 1s ease infinite;
+}
+.felinux-anim-lost .felinux-img {
+  animation: imgLostSway 2s ease-in-out infinite;
+}
+.felinux-anim-neutral .felinux-img {
+  animation: imgIdleBreathe 3s ease-in-out infinite;
+}
+
+@keyframes imgBounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-14px); }
+}
+@keyframes imgVictoryJump {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-28px) rotate(-3deg); }
+  75% { transform: translateY(-28px) rotate(3deg); }
+}
+@keyframes imgSadShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+@keyframes imgLostSway {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+@keyframes imgIdleBreathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.felinux-sparkles {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 100px;
+  pointer-events: none;
+}
+.sparkle {
+  position: absolute;
+  font-size: 22px;
+  animation: sparkleFloat 1s ease-in-out infinite;
+  color: #ffd54f;
+}
+.s1 { left: 10%; top: 0; animation-delay: 0s; }
+.s2 { left: 80%; top: 10%; animation-delay: 0.2s; }
+.s3 { left: 30%; top: -10%; animation-delay: 0.5s; }
+.s4 { left: 65%; top: 5%; animation-delay: 0.7s; }
+@keyframes sparkleFloat {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+  50% { transform: translateY(-15px) scale(1.3); opacity: 0.6; }
+}
+
+.felinux-tears {
+  position: absolute;
+  width: 100%;
+  top: 30%;
+  pointer-events: none;
+}
+.felinux-tears .tear {
+  position: absolute;
+  font-size: 16px;
+  animation: tearDrop 1.5s ease-in infinite;
+}
+.tear-left { left: 30%; animation-delay: 0s; }
+.tear-right { right: 30%; animation-delay: 0.5s; }
+@keyframes tearDrop {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(50px); opacity: 0; }
+}
+
+.felinux-question-marks {
+  position: absolute;
+  top: 0;
+  right: -10px;
+  pointer-events: none;
+}
+.felinux-question-marks .qmark {
+  position: absolute;
+  font-size: 28px;
+  font-weight: 900;
+  color: #ffd54f;
+  animation: qmarkFloat 2s ease-in-out infinite;
+}
+.q1 { right: -10px; top: -10px; animation-delay: 0s; }
+.q2 { right: -25px; top: 15px; animation-delay: 0.4s; font-size: 22px; }
+.q3 { right: 5px; top: -30px; animation-delay: 0.8s; font-size: 18px; }
+@keyframes qmarkFloat {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(-10px); opacity: 1; }
+}

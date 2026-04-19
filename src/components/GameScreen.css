@@ -1,0 +1,136 @@
+.game-screen {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.8s ease;
+}
+
+/* === Escenas con imágenes de fondo === */
+.game-bg-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  transition: opacity 0.8s ease;
+}
+.scene-outdoor .game-bg-image {
+  background-image: url('/images/bg-game-1.png');
+}
+.scene-indoor .game-bg-image {
+  background-image: url('/images/bg-game-2.png');
+}
+.scene-lab .game-bg-image {
+  background-image: url('/images/bg-game-3.png');
+}
+/* Fallback gradients if images don't load */
+.scene-outdoor { background: linear-gradient(180deg, #0a0a2e 0%, #1a1a4e 50%, #0d1a0d 100%); }
+.scene-indoor { background: linear-gradient(180deg, #1a1a3e 0%, #2a2a5e 50%, #1a2040 100%); }
+.scene-lab { background: linear-gradient(180deg, #0a1a2e 0%, #1a2a4e 50%, #0a1a2e 100%); }
+
+.transitioning {
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+/* === HUD === */
+.game-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: transparent;
+  z-index: 20;
+}
+.hud-score, .hud-question-num {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+.hud-label {
+  font-size: 17px;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 2px;
+}
+.hud-value {
+  font-family: 'Fredoka One', cursive;
+  font-size: 38px;
+  color: #ffd54f;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.18);
+}
+
+/* === Mensaje de poder === */
+.power-message {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  background: linear-gradient(135deg, rgba(124, 77, 255, 0.95), rgba(103, 58, 183, 0.95));
+  color: white;
+  padding: 10px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 4px 20px rgba(124, 77, 255, 0.4);
+  animation: messageSlide 0.4s ease-out;
+  white-space: nowrap;
+}
+@keyframes messageSlide {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* === Área principal === */
+.game-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 40px;
+  padding: 20px 10vw 20px 20px;
+  z-index: 10;
+}
+.game-felinux-area {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: 200px;
+  align-self: flex-end;
+  margin-bottom: -20px;
+  margin-right: 5vw;
+}
+.game-question-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 540px;
+  width: 100%;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .game-main {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .game-felinux-area {
+    transform: scale(0.6);
+    min-width: unset;
+  }
+  .game-hud {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+}
