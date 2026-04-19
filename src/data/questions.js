@@ -40,7 +40,7 @@ const questionBank = [
     correct: 0
   },
   {
-    question: "¿Cuál es la materia que no es de la FIEC pero suelen pensar que lo es?",
+    question: "¿Cuál es la carrera que no es de la FIEC pero suelen pensar que lo es?",
     options: ["Ingeniería Mecatrónica", "Ingeniería en Electricidad", "Ingeniería en Electrónica y Automatización", "Ciencia de Datos e Inteligencia Artificial"],
     correct: 0
   },
